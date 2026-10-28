@@ -120,10 +120,11 @@ Verified in this session (after the format fix and code-samples expansion, re-ch
 - `dotnet build IowaBenefitsPortal.sln -c Release` — **succeeded, 0 warnings, 0 errors**.
 - Running app — `/health` returns ok; all 8 pages return 200 (`/`, `projects`, `code-samples`, `benefits`, `apply`, `status`, `services`, `design-system`); `GET /api/services` returns the fictional catalogue; `POST /api/applications` with the README example returns 201 with reference `IA-DEMO-2026-000201`; seeded `IA-DEMO-2026-000101` returns 200; unknown reference returns 404 with a plain error message.
 - `dotnet format --verify-no-changes` — passes after the 2026-10-28 whitespace fix in the test file.
+- **GitHub Actions CI** — build + format + test + accessibility smoke tests passed on the GitHub runner, including the run for the latest main commit dd5a031 (2026-10-28, "Remove Iowa mentions from visible portfolio text", Status: Success). The test pass is claimed from CI, not from the local runner below.
 
 Not verified in this build environment, stated honestly so a reviewer is not misled:
 
-- **Unit/API test run** — a full `dotnet test` run on 2026-10-28 aborted after 600 seconds with a vstest testhost connection timeout (environment, not a test failure; no test passed or failed). Re-run `dotnet test` on the machine you share from before claiming a pass.
+- **Unit/API test run locally** — a full `dotnet test` run on 2026-10-28 aborted after 600 seconds with a vstest testhost connection timeout in this environment (environment, not a test failure; no test passed or failed locally). The same test suite passes on the GitHub Actions runner (see the CI bullet above); re-run `dotnet test` on the machine you share from before claiming a local pass.
 - **JAWS manual testing** — no JAWS licence in this environment.
 - **axe browser run** — not performed here; documented as a manual step with CLI instructions.
 - **Live SQL Server run** — no SQL Server instance here; the repository code compiles and its SQL is parameterized, but the database scripts have not been executed against a live server.
