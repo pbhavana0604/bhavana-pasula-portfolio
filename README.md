@@ -95,6 +95,15 @@ Every page uses landmarks, one `h1`, logical heading order, a skip link, visible
 
 **No certification is claimed, and no page is claimed to be fully WCAG compliant or Section 508 compliant.** Automated checks are a regression net, not a compliance claim. Manual keyboard and screen-reader testing are still required — see `docs/ACCESSIBILITY.md` for the full checklist, axe and JAWS workflow.
 
+## Troubleshooting
+
+- **Port already in use:** if `http://localhost:5111` is taken, run with a different port, e.g. `--urls http://localhost:5222`, and use that port in the browser and in the curl examples.
+- **`dotnet` not found:** on this machine the SDK lives at `~/.dotnet/dotnet`; add it to your path with `export PATH="$HOME/.dotnet:$PATH"` before running `dotnet` commands.
+- **App starts but a page is blank:** check the app is still running (`curl http://localhost:5111/health` should return `{"status":"ok","demo":true}`) and that you opened the app's address, not a static file copy — the API calls only work when the app itself is serving the pages.
+- **Tests hang on the test runner:** on a slow machine the vstest testhost connection can time out (this happened in this environment on 2026-10-27). Retry with `VSTEST_CONNECTION_TIMEOUT=600 dotnet test`, or run a subset first: `dotnet test --filter EligibilityServiceTests`. A timeout is a runner/environment failure, not a test failure — do not report tests as passed or failed from a run that never connected.
+- **Screenshots:** headless Chrome in this sandbox fails to write screenshots (zygote communication error), so no screenshots are included here. Take them from a real browser once the app is running locally, rather than shipping generated or placeholder images.
+- **SQL Server wanted:** the app runs without a database. Only set `ConnectionStrings__IowaBenefits` when you actually have a SQL Server instance; an empty/missing value intentionally selects the in-memory store.
+
 ## Deployment
 
 - **Full app (API + pages):** Azure App Service, or any host that runs .NET 8 — see `docs/PUBLISHING.md`. GitHub Pages alone serves only static pages; the API needs the running app.
@@ -104,12 +113,20 @@ Every page uses landmarks, one `h1`, logical heading order, a skip link, visible
 
 No secrets are in this repository. The connection string is empty by default and the app runs on the in-memory store; to use SQL Server, set `ConnectionStrings__IowaBenefits` via environment variable / Key Vault / Secrets Manager. Details: `docs/SECURITY_AND_CONFIG.md` and `docs/SQL_SERVER.md`.
 
-## Not verified in this build environment
+## Verified on 2026-10-28, and not verified
 
-Stated honestly, so a reviewer is not misled:
+Verified in this session (after the format fix and code-samples expansion, re-check before sharing if you change code):
 
+- `dotnet build IowaBenefitsPortal.sln -c Release` — **succeeded, 0 warnings, 0 errors**.
+- Running app — `/health` returns ok; all 8 pages return 200 (`/`, `projects`, `code-samples`, `benefits`, `apply`, `status`, `services`, `design-system`); `GET /api/services` returns the fictional catalogue; `POST /api/applications` with the README example returns 201 with reference `IA-DEMO-2026-000201`; seeded `IA-DEMO-2026-000101` returns 200; unknown reference returns 404 with a plain error message.
+- `dotnet format --verify-no-changes` — passes after the 2026-10-28 whitespace fix in the test file.
+
+Not verified in this build environment, stated honestly so a reviewer is not misled:
+
+- **Unit/API test run** — a full `dotnet test` run was started in this session; its result is reported separately and must not be claimed until that run completes. On 2026-10-27 the same run aborted on a vstest testhost connection timeout (environment, not a test failure).
 - **JAWS manual testing** — no JAWS licence in this environment.
 - **axe browser run** — not performed here; documented as a manual step with CLI instructions.
 - **Live SQL Server run** — no SQL Server instance here; the repository code compiles and its SQL is parameterized, but the database scripts have not been executed against a live server.
 - **Public deployment** — no hosting was provisioned in this build; publishing steps are manual in `docs/PUBLISHING.md`.
+- **Screenshots** — headless Chrome in this sandbox cannot write screenshots, so none are shipped; see Troubleshooting.
 - **Sass compilation** — verified in the earlier build: `npx sass frontend/scss/main.scss src/IowaBenefitsPortal/wwwroot/css/main.css` completed with no warnings, and that generated file is the checked-in `wwwroot/css/main.css`.

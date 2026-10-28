@@ -1,5 +1,8 @@
 # Azure DevOps pipeline for the Iowa benefits portal demo.
-# Restore -> build -> test -> publish artifact. No secrets referenced.
+# Restore -> format check -> build -> test (incl. accessibility smoke
+# tests) -> publish artifact. No secrets referenced. A clean automated
+# run is not a WCAG compliance claim; manual axe and JAWS testing
+# remain separate steps in docs/ACCESSIBILITY.md.
 trigger:
   - main
 
@@ -23,6 +26,13 @@ steps:
       projects: IowaBenefitsPortal.sln
 
   - task: DotNetCoreCLI@2
+    displayName: Format check (code quality)
+    inputs:
+      command: custom
+      custom: format
+      arguments: --verify-no-changes --verbosity quiet
+
+  - task: DotNetCoreCLI@2
     displayName: Build
     inputs:
       command: build
@@ -35,6 +45,14 @@ steps:
       command: test
       projects: tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj
       arguments: --configuration $(buildConfiguration) --no-build --logger trx
+      publishTestResults: true
+
+  - task: DotNetCoreCLI@2
+    displayName: Accessibility smoke tests (structural only)
+    inputs:
+      command: test
+      projects: tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj
+      arguments: --configuration $(buildConfiguration) --no-build --filter HtmlAccessibilitySmokeTests
       publishTestResults: true
 
   - task: DotNetCoreCLI@2

@@ -30,15 +30,55 @@
 <p><code>code-samples/csharp/FlightReservation.cs</code> — fare search result, reservation hold with expiry, itinerary change/cancellation rules, and an idempotent nightly load record.</p>
 <h2 id="support">Support — ticket pattern</h2>
 <p><code>code-samples/csharp/SupportTicket.cs</code> — ticket creation, assignment, SLA deadline calculation, escalation, and audit history. Plus the legacy Web Forms sample and modern equivalent in <code>code-samples/legacy/</code>.</p>
-<h2>Runnable core — already in this repo</h2>
+<h2 id="dotnet">C# / .NET — runnable core</h2>
 <ul>
 <li><code>src/IowaBenefitsPortal/Controllers/</code> — versioned REST API, validation, 201/400/404 handling</li>
 <li><code>src/IowaBenefitsPortal/Services/</code> — application + fictional eligibility rules, cleanly separated from HTTP</li>
-<li><code>src/IowaBenefitsPortal/Repositories/</code> — in-memory default + SQL Server (parameterised queries, stored procedure in <code>database/sql/</code>)</li>
-<li><code>src/IowaBenefitsPortal/Middleware/</code> — global exception handling, security headers, request logging</li>
-<li><code>frontend/scss/</code> — design tokens, mixins, base and components; compiled CSS checked in</li>
-<li><code>tests/IowaBenefitsPortal.Tests/</code> — xUnit: eligibility rules, API responses, HTML accessibility smoke tests</li>
+<li><code>src/IowaBenefitsPortal/Models/</code>, <code>Dtos/</code> — stored shapes and DataAnnotations-validated request contracts</li>
+<li>Dependency injection in <code>Program.cs</code>: services and the repository interface are registered once and swapped by configuration (in-memory by default, SQL Server when a connection string is set)</li>
 </ul>
+<h2 id="api-middleware">REST APIs and middleware</h2>
+<ul>
+<li><code>src/IowaBenefitsPortal/Middleware/</code> — global exception handling (generic error shape, no stack traces or personal data leaked), security headers, and request logging without bodies or personal data</li>
+<li>API contract, versioned routes (<code>/api/</code> and <code>/api/v1/</code>), and <code>GET /health</code> are documented in <code>docs/ARCHITECTURE.md</code></li>
+</ul>
+<h2 id="sql">SQL Server</h2>
+<ul>
+<li><code>database/sql/01_schema.sql</code> — tables and constraints for services and applications</li>
+<li><code>database/sql/02_seed_fictional.sql</code> — fictional seeded records only, including the demo references used by the status page</li>
+<li><code>database/sql/03_queries.sql</code> — parameterised queries and a stored procedure; the SQL repository in <code>Repositories/</code> uses parameterised ADO.NET, not string-built SQL</li>
+<li>Production connection guidance (environment variables, Key Vault / Secrets Manager, never in source) is in <code>docs/SQL_SERVER.md</code> and <code>docs/SECURITY_AND_CONFIG.md</code>. No live SQL Server run was available in this build environment, so the scripts are not claimed to have been executed against a live server.</li>
+</ul>
+<h2 id="html-js">HTML5 and JavaScript</h2>
+<ul>
+<li><code>wwwroot/apply.html</code> + <code>js/apply.js</code> — the complete journey: entry, client-side validation, error summary with focus, error recovery, submission, and confirmation reference</li>
+<li><code>wwwroot/status.html</code> + <code>js/status.js</code> — look up a reference and announce the result in a live region</li>
+<li><code>wwwroot/services.html</code> + <code>js/services.js</code> — catalogue loaded from the API, with a loading and error state</li>
+<li>All pages use semantic landmarks, one <code>h1</code>, real labels, and native controls (<code>dialog</code>, checkboxes) rather than custom mouse-only widgets</li>
+</ul>
+<h2 id="sass">Sass / SCSS</h2>
+<ul>
+<li><code>frontend/scss/_tokens.scss</code> — design tokens as variables and maps (colours, type, spacing, breakpoints)</li>
+<li><code>frontend/scss/_mixins.scss</code> — <code>focus-ring</code>, <code>respond-to</code>, <code>button</code>, <code>card</code> mixins with parameters</li>
+<li><code>frontend/scss/_base.scss</code>, <code>_components.scss</code>, <code>main.scss</code> — element defaults and reusable components; nesting is kept to one level for states only, no deep nesting, <code>@extend</code> chains, or <code>!important</code></li>
+<li>The compiled CSS in <code>wwwroot/css/main.css</code> is checked in, so the demo runs with no Sass build step; rebuild it with <code>npx sass frontend/scss/main.scss src/IowaBenefitsPortal/wwwroot/css/main.css</code></li>
+</ul>
+<h2 id="components">Reusable UI components</h2>
+<p>Live on the design-system page: buttons, links, form controls, alerts, navigation, cards, tables, dialogs, and error/success states, all built from the same tokens. The difference between a design system, a component library, and a CSS framework — and how a team adopts an organisation-wide system without rewriting every page — is documented in <code>docs/DESIGN_SYSTEM.md</code>.</p>
+<h2 id="accessibility">Accessibility remediation — before / after</h2>
+<p>Worked examples in <code>docs/ACCESSIBILITY.md</code>: missing labels, unannounced validation errors, skipped heading levels, keyboard traps, inadequate contrast, and missing accessible names — each shown broken, then fixed. The manual axe and JAWS workflow, keyboard checklist, focus-management checks, contrast and reflow checks, and the honest limit (a clean automated run is not a compliance claim) are in the same document. No accessibility certification is claimed.</p>
+<h2 id="tests">Automated tests</h2>
+<ul>
+<li><code>tests/IowaBenefitsPortal.Tests/PortalTests.cs</code> — eligibility rules (eligible, likely eligible, needs review, unknown service), API success (201 with reference), validation failures (bad ZIP, no consent, unknown service → 400), not-found (404), seeded-record lookup, and HTML accessibility smoke tests (skip link, landmarks, single <code>h1</code>, labels, no placeholder-only labels)</li>
+<li>Run them with <code>dotnet test IowaBenefitsPortal.sln</code>. Test status in this environment is reported honestly in the README; do not claim a pass that has not been observed.</li>
+</ul>
+<h2 id="cicd">Azure DevOps CI / CD</h2>
+<ul>
+<li><code>azure-pipelines.yml</code> — restore → format check → build → test → accessibility smoke tests → publish artifact</li>
+<li><code>.github/workflows/ci.yml</code> — the same stages for GitHub Actions; see <code>docs/CI_CD.md</code> for the AWS future path (CodePipeline / CodeBuild / ECS sketch, no cloud resources created)</li>
+</ul>
+<h2 id="legacy">Legacy modernisation</h2>
+<p><code>code-samples/legacy/</code> — a Web Forms benefits-lookup sample (page, code-behind, user control) plus its modern ASP.NET Core equivalent, and <code>docs/LEGACY_MODERNIZATION.md</code> explaining when Web Forms maintenance is appropriate and when migration is the right call. The legacy files are illustrative and are not compiled in the .NET 8 project.</p>
 <p><a href="index.html">Back to portfolio home</a></p>
 </main>
 <div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>

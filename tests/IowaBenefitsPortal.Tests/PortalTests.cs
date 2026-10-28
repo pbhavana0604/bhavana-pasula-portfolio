@@ -120,8 +120,13 @@ public sealed class ApiTests : IDisposable
     {
         var payload = new
         {
-            firstName = "Alex", lastName = "Example", city = "Des Moines", zipCode = "50309",
-            householdSize = 3, monthlyIncome = 1500, serviceIds = new[] { "food-assistance" },
+            firstName = "Alex",
+            lastName = "Example",
+            city = "Des Moines",
+            zipCode = "50309",
+            householdSize = 3,
+            monthlyIncome = 1500,
+            serviceIds = new[] { "food-assistance" },
             consent = false,
         };
         var response = await _client.PostAsJsonAsync("/api/applications", payload);
@@ -133,8 +138,13 @@ public sealed class ApiTests : IDisposable
     {
         var payload = new
         {
-            firstName = "Alex", lastName = "Example", city = "Des Moines", zipCode = "50309",
-            householdSize = 3, monthlyIncome = 1500, serviceIds = new[] { "nope" },
+            firstName = "Alex",
+            lastName = "Example",
+            city = "Des Moines",
+            zipCode = "50309",
+            householdSize = 3,
+            monthlyIncome = 1500,
+            serviceIds = new[] { "nope" },
             consent = true,
         };
         var response = await _client.PostAsJsonAsync("/api/applications", payload);

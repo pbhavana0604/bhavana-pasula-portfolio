@@ -13,8 +13,10 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - run: dotnet restore IowaBenefitsPortal.sln
+      - run: dotnet format --verify-no-changes --verbosity quiet
       - run: dotnet build IowaBenefitsPortal.sln --configuration Release --no-restore
       - run: dotnet test tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj --configuration Release --no-build
+      - run: dotnet test tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj --configuration Release --no-build --filter HtmlAccessibilitySmokeTests
       - run: dotnet publish src/IowaBenefitsPortal/IowaBenefitsPortal.csproj --configuration Release --output dist/app
       - uses: actions/upload-artifact@v4
         with:
