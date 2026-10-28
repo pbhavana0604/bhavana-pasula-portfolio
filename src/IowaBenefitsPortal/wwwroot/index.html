@@ -6,65 +6,265 @@
 <title>Bhavana Pasula — Senior .NET Full Stack Developer | Portfolio &amp; Code Samples</title>
 <meta name="description" content="Portfolio and code samples by Bhavana Pasula, Senior .NET Full Stack Developer: ASP.NET Core APIs, accessible front-end and design systems, SQL Server, and sample projects from healthcare, banking, government, airline and IT services work. Fictional sample data only.">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/portfolio.css">
 </head>
-<body>
+<body class="pf-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header">
-  <div class="container">
-    <p class="site-title">Bhavana Pasula</p>
-    <p class="site-tagline">Senior .NET Full Stack Developer — Waukee, Iowa · Willing to relocate</p>
-    <nav class="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="code-samples.html">Code samples</a></li>
-        <li><a href="design-system.html">Design system</a></li>
-        <li><a href="benefits.html">Benefits demo</a></li>
-      </ul>
+<div class="pf-progress" id="pf-progress" aria-hidden="true"></div>
+<header class="pf-header">
+  <div class="pf-header-inner">
+    <a class="pf-wordmark" href="index.html">Bhavana Pasula</a>
+    <nav class="pf-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#technologies">Technologies</a>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a class="pf-hire" href="#contact">Hire me</a>
     </nav>
   </div>
 </header>
-<main id="main-content" class="container">
-  <p class="demo-notice" role="note">Portfolio demonstration — fictional sample data only. This is not a real client system, no real customer, patient, citizen or passenger data is used, and no credentials are published. Contact details are on the submitted resume; this site publishes only the LinkedIn profile below.</p>
-  <h1>Senior .NET Full Stack Developer — code you can run, not just list</h1>
-  <p>10 years building enterprise applications across healthcare, banking, government, airlines and IT services — C#, ASP.NET Core, Web API and Minimal APIs, EF Core and SQL Server, Angular, React and TypeScript, Azure and AWS, Docker and Kubernetes, Kafka and Azure Service Bus, and AI-assisted .NET work with Azure OpenAI, Semantic Kernel and RAG.</p>
-  <p>What makes this portfolio different from a list of skills: the runnable demo, the design system, and the code samples use the same patterns as on the resume — layered APIs, validated forms with error recovery, reusable components with design tokens, and WCAG 2.1 AA / Section 508 accessibility work (semantic HTML, keyboard navigation, focus management, axe-core remediation for missing labels, focus order and dynamic content).</p>
-  <p><a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a> · <a href="projects.html">See all projects</a> · <a href="code-samples.html">Browse code samples</a></p>
-  <h2>Run it in 2 minutes</h2>
-  <pre><code>git clone https://github.com/pbhavana0604/bhavana-pasula-portfolio.git
+<main id="main-content" class="pf-main">
+  <section class="pf-hero" aria-labelledby="hero-heading">
+    <div>
+      <p><span class="pf-badge">Available for contract roles</span></p>
+      <h1 id="hero-heading">Senior .NET developer<br><span class="pf-outline">building</span> <span id="pf-rotating" class="pf-rotating" aria-hidden="true">accessible</span><br>software</h1>
+      <p class="pf-role">Bhavana Pasula — Senior .NET Full Stack Developer, Waukee, Iowa</p>
+      <p class="pf-lead">10 years building enterprise applications across healthcare, banking, government, airlines and IT services — C#, ASP.NET Core, Web API, EF Core and SQL Server, Angular, React and TypeScript, Azure and AWS, Kafka and Azure Service Bus, and AI-assisted .NET work with Azure OpenAI, Semantic Kernel and RAG. This page is a general portfolio, not built for one job posting, and the demo inside it uses fictional data only.</p>
+      <p class="pf-actions">
+        <a class="pf-btn" href="#work">View featured work</a>
+        <a class="pf-btn pf-btn-outline" href="benefits.html">Run the benefits demo</a>
+        <a class="pf-btn pf-btn-outline" href="code-samples.html">Browse code samples</a>
+      </p>
+    </div>
+    <div class="pf-monogram" aria-label="Bhavana Pasula, initials BP">
+      <strong aria-hidden="true">BP</strong>
+      <p>Senior .NET Full Stack Developer<br>Waukee, Iowa &middot; Willing to relocate<br><a href="https://www.linkedin.com/in/bhavana2708/" style="color:#fff;">LinkedIn — Bhavana Pasula</a></p>
+    </div>
+  </section>
+
+  <section class="pf-stats" aria-label="Career at a glance">
+    <div class="pf-stat"><strong>10+</strong><span>Years of experience</span></div>
+    <div class="pf-stat"><strong>5</strong><span>Employers, 2025 back to 2017</span></div>
+    <div class="pf-stat"><strong>5</strong><span>Industries: healthcare, banking, government, airline, IT services</span></div>
+    <div class="pf-stat"><strong>4</strong><span>Code-sample patterns: healthcare, banking, airline, support</span></div>
+  </section>
+
+  <div class="pf-marquee" aria-hidden="true"><span>C# &diamond; ASP.NET Core &diamond; Angular &diamond; React &diamond; TypeScript &diamond; Azure &diamond; SQL Server &diamond; Accessibility &diamond; Design Systems &diamond; Kafka &diamond; Web API &diamond; EF Core &diamond;&nbsp;</span></div>
+
+  <section class="pf-section" id="about" aria-labelledby="about-heading">
+    <p class="pf-eyebrow">/ 01 &middot; About</p>
+    <h2 id="about-heading">Building the back end and the interface people actually use</h2>
+    <p class="pf-standfirst">The same person, both sides of the product: layered APIs and data access behind the scenes, and semantic, keyboard-accessible, responsive interfaces in front of them — with a reusable design system holding the two together.</p>
+    <div class="pf-two-col">
+      <div class="pf-card">
+        <p><span class="pf-badge">BP</span></p>
+        <ul class="pf-facts">
+          <li><span>Role</span><span>Senior .NET Full Stack Developer</span></li>
+          <li><span>Based in</span><span>Waukee, Iowa</span></li>
+          <li><span>Relocation</span><span>Yes, willing to relocate</span></li>
+          <li><span>Focus</span><span>Contract &amp; contract-to-hire .NET roles</span></li>
+          <li><span>Profile</span><span><a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn</a></span></li>
+          <li><span>Code</span><span><a href="https://github.com/pbhavana0604/bhavana-pasula-portfolio">GitHub portfolio</a></span></li>
+        </ul>
+      </div>
+      <div class="pf-card">
+        <p>Senior Full Stack .NET Developer with 10 years of experience designing, developing, testing, deploying and maintaining enterprise applications across the full SDLC, using Agile/Scrum — across healthcare, banking, government, airline transportation and IT service management, supporting licensing, permitting, payment and high-volume business applications.</p>
+        <p><strong>Proficient in C#, VB.NET, .NET Framework, ASP.NET Web Forms, .NET Core and ASP.NET Core</strong>, MVC and Minimal APIs, with SOLID principles, Clean Architecture, Domain-Driven Design, repository patterns, dependency injection and enterprise design patterns. Responsive, <strong>accessible</strong> enterprise applications in Angular, React, TypeScript, JavaScript, HTML5, CSS3 and Sass/SCSS, applying UI/UX principles, usability standards and reusable component patterns.</p>
+        <p>Also: secure REST APIs and microservices, WCF, SOAP, GraphQL and SignalR; event-driven systems with Kafka, Azure Service Bus, Amazon MSK, SQS and SNS, retries and dead-letter queues; SQL Server, PostgreSQL, Oracle, Cosmos DB and Redis; SSIS, Azure Data Factory and Databricks; and AI solutions with Azure OpenAI, RAG, Amazon Bedrock and SageMaker.</p>
+        <p><a href="projects.html">See all projects</a> &middot; <a href="design-system.html">Open the design system</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-section" id="expertise" aria-labelledby="expertise-heading">
+    <p class="pf-eyebrow">/ 02 &middot; Expertise</p>
+    <h2 id="expertise-heading">What I do, in eight areas</h2>
+    <p class="pf-standfirst">Each area below is backed by a runnable demo, a code sample, or a documented pattern in this repository — not by a keyword list alone.</p>
+    <ol class="pf-expertise">
+      <li><span class="pf-num">01</span><strong>ASP.NET Core APIs &amp; microservices</strong><span>Versioned REST APIs, validation, idempotency, pagination, caching and OpenAPI; loan, payment, reservation and support services.</span></li>
+      <li><span class="pf-num">02</span><strong>Front-end: Angular, React &amp; TypeScript</strong><span>Dashboards and portals with RxJS, NgRx, Redux Toolkit, Angular Material and Material UI, built responsively.</span></li>
+      <li><span class="pf-num">03</span><strong>Accessible UI/UX &amp; design systems</strong><span>Semantic HTML5, design tokens, reusable components, keyboard navigation, focus management and axe-core remediation.</span></li>
+      <li><span class="pf-num">04</span><strong>SQL Server &amp; data engineering</strong><span>Complex queries, functions, stored procedures, EF Core, ADO.NET and Dapper, plus SSIS, Azure Data Factory and Databricks.</span></li>
+      <li><span class="pf-num">05</span><strong>Cloud, containers &amp; CI/CD</strong><span>Azure and AWS, Docker, Kubernetes and AKS, Terraform, Azure DevOps, GitHub Actions and Jenkins pipelines.</span></li>
+      <li><span class="pf-num">06</span><strong>Event-driven &amp; messaging systems</strong><span>Kafka, Azure Service Bus, Event Grid, Amazon MSK, SQS and SNS, with retries and dead-letter queues.</span></li>
+      <li><span class="pf-num">07</span><strong>AI-assisted .NET development</strong><span>Azure OpenAI, Semantic Kernel and RAG, Amazon Bedrock, and AI-assisted debugging and refactoring — always validated by a person.</span></li>
+      <li><span class="pf-num">08</span><strong>Legacy modernisation</strong><span>VB.NET and ASP.NET Web Forms modernised to ASP.NET Core and microservices, with hybrid on-premises and cloud deployments.</span></li>
+    </ol>
+  </section>
+
+  <section class="pf-section" id="technologies" aria-labelledby="technologies-heading">
+    <p class="pf-eyebrow">/ 03 &middot; Technologies</p>
+    <h2 id="technologies-heading">Technologies, grouped — filter them</h2>
+    <p class="pf-standfirst">Use the filter buttons to narrow the categories. Every tag below is a skill listed on the resume supplied for this portfolio.</p>
+    <div class="pf-filter" role="group" aria-label="Filter technology categories">
+      <button class="pf-pill" type="button" data-pf-filter="all" aria-pressed="true">All</button>
+      <button class="pf-pill" type="button" data-pf-filter="backend" aria-pressed="false">Backend</button>
+      <button class="pf-pill" type="button" data-pf-filter="frontend" aria-pressed="false">Frontend</button>
+      <button class="pf-pill" type="button" data-pf-filter="data" aria-pressed="false">Data &amp; messaging</button>
+      <button class="pf-pill" type="button" data-pf-filter="cloud" aria-pressed="false">Cloud &amp; DevOps</button>
+    </div>
+    <p id="pf-filter-live" aria-live="polite"></p>
+    <div class="pf-grid">
+      <div class="pf-card" data-pf-category="backend">
+        <p class="pf-eyebrow">Backend</p>
+        <h3>.NET &amp; APIs</h3>
+        <p class="pf-tags"><span class="pf-tag">C#</span><span class="pf-tag">VB.NET</span><span class="pf-tag">.NET Core</span><span class="pf-tag">ASP.NET Core</span><span class="pf-tag">ASP.NET MVC</span><span class="pf-tag">Web API</span><span class="pf-tag">Minimal APIs</span><span class="pf-tag">Web Forms</span><span class="pf-tag">WCF</span><span class="pf-tag">SOAP</span><span class="pf-tag">GraphQL</span><span class="pf-tag">SignalR</span></p>
+      </div>
+      <div class="pf-card" data-pf-category="frontend">
+        <p class="pf-eyebrow">Frontend</p>
+        <h3>UI &amp; design</h3>
+        <p class="pf-tags"><span class="pf-tag">Angular</span><span class="pf-tag">React</span><span class="pf-tag">TypeScript</span><span class="pf-tag">JavaScript</span><span class="pf-tag">HTML5</span><span class="pf-tag">CSS3</span><span class="pf-tag">Sass/SCSS</span><span class="pf-tag">Bootstrap</span><span class="pf-tag">Angular Material</span><span class="pf-tag">Material UI</span><span class="pf-tag">RxJS</span><span class="pf-tag">NgRx</span><span class="pf-tag">Redux Toolkit</span></p>
+      </div>
+      <div class="pf-card" data-pf-category="data">
+        <p class="pf-eyebrow">Data &amp; messaging</p>
+        <h3>Data, events &amp; AI data</h3>
+        <p class="pf-tags"><span class="pf-tag">SQL Server</span><span class="pf-tag">PostgreSQL</span><span class="pf-tag">Oracle</span><span class="pf-tag">Cosmos DB</span><span class="pf-tag">Redis</span><span class="pf-tag">EF Core</span><span class="pf-tag">ADO.NET</span><span class="pf-tag">Dapper</span><span class="pf-tag">SSIS</span><span class="pf-tag">Azure Data Factory</span><span class="pf-tag">Databricks</span><span class="pf-tag">Kafka</span><span class="pf-tag">Azure Service Bus</span><span class="pf-tag">Amazon MSK</span></p>
+      </div>
+      <div class="pf-card" data-pf-category="cloud">
+        <p class="pf-eyebrow">Cloud &amp; DevOps</p>
+        <h3>Cloud, delivery &amp; testing</h3>
+        <p class="pf-tags"><span class="pf-tag">Azure</span><span class="pf-tag">AWS</span><span class="pf-tag">Docker</span><span class="pf-tag">Kubernetes</span><span class="pf-tag">AKS</span><span class="pf-tag">Terraform</span><span class="pf-tag">Azure DevOps</span><span class="pf-tag">GitHub Actions</span><span class="pf-tag">Jenkins</span><span class="pf-tag">xUnit</span><span class="pf-tag">NUnit</span><span class="pf-tag">Moq</span><span class="pf-tag">SonarQube</span><span class="pf-tag">OpenTelemetry</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-section" aria-labelledby="process-heading">
+    <p class="pf-eyebrow">/ 04 &middot; Process</p>
+    <h2 id="process-heading">How work gets done</h2>
+    <p class="pf-standfirst">A working pattern from enterprise delivery, not a claim about any one client: understand, design, build, make it accessible, test, and ship with support.</p>
+    <div class="pf-grid pf-grid-3">
+      <div class="pf-card"><p><span class="pf-step-pill">Step 1</span></p><h3>Understand</h3><p>Requirements, user journeys and existing systems first — especially when modernising a legacy application.</p><p class="pf-keywords">requirements &middot; journeys &middot; legacy review</p></div>
+      <div class="pf-card"><p><span class="pf-step-pill">Step 2</span></p><h3>Design</h3><p>Layered APIs, data shapes and reusable components, agreed as tokens and contracts before the build grows.</p><p class="pf-keywords">architecture &middot; tokens &middot; contracts</p></div>
+      <div class="pf-card"><p><span class="pf-step-pill">Step 3</span></p><h3>Build</h3><p>Clean, reviewed code in small increments, with pair and mob programming and code review where the team uses them.</p><p class="pf-keywords">clean code &middot; reviews &middot; increments</p></div>
+      <div class="pf-card"><p><span class="pf-step-pill">Step 4</span></p><h3>Make it accessible</h3><p>Semantic HTML, real labels, keyboard and focus behaviour from the start, then axe-core checks and manual testing.</p><p class="pf-keywords">semantics &middot; keyboard &middot; axe-core</p></div>
+      <div class="pf-card"><p><span class="pf-step-pill">Step 5</span></p><h3>Test</h3><p>Unit and API tests for the rules that matter, performance checks, and validation-failure cases — not only the happy path.</p><p class="pf-keywords">xUnit &middot; API tests &middot; failure cases</p></div>
+      <div class="pf-card"><p><span class="pf-step-pill">Step 6</span></p><h3>Ship &amp; support</h3><p>CI/CD pipelines, repeatable deployments, logging and troubleshooting in production, and maintenance after launch.</p><p class="pf-keywords">pipelines &middot; logging &middot; maintenance</p></div>
+    </div>
+  </section>
+
+  <section class="pf-section" id="work" aria-labelledby="work-heading">
+    <p class="pf-eyebrow">/ 05 &middot; Featured work</p>
+    <h2 id="work-heading">Work history, from the resume</h2>
+    <p class="pf-standfirst">Five employers, in order. Each card links to the matching code sample or demo where one exists. No client, patient, customer or passenger data is used anywhere in this portfolio.</p>
+
+    <article class="pf-card pf-work-card pf-card-featured">
+      <div class="pf-work-head"><p class="pf-eyebrow">Healthcare</p><span class="pf-date">Jul 2025 – Present</span></div>
+      <h3>Senior Full Stack .NET Developer — UCLA Health, Los Angeles, CA</h3>
+      <p>Healthcare dashboards and accessible enterprise applications, with FHIR/HL7 integration and AI-assisted summaries that require human review before display.</p>
+      <ul class="pf-bullets">
+        <li><strong>Dashboards:</strong> Angular, TypeScript, RxJS, NgRx, Angular Material and AG Grid patterns</li>
+        <li><strong>Workflows:</strong> SignalR and Redis-backed live updates</li>
+        <li><strong>Integration:</strong> HL7 v2 and FHIR R4 patient-summary mapping</li>
+        <li><strong>Accessibility:</strong> WCAG remediation — missing labels, keyboard, focus order, dynamic content</li>
+        <li><strong>AI:</strong> Azure OpenAI and RAG summaries, reviewed before display</li>
+      </ul>
+      <p class="pf-tags"><span class="pf-tag">Angular</span><span class="pf-tag">SignalR</span><span class="pf-tag">FHIR R4</span><span class="pf-tag">Azure OpenAI</span><span class="pf-tag">Accessibility</span></p>
+      <p><a href="code-samples.html#healthcare">See the healthcare sample</a></p>
+    </article>
+
+    <article class="pf-card pf-work-card">
+      <div class="pf-work-head"><p class="pf-eyebrow">Banking</p><span class="pf-date">Jul 2023 – Jun 2025</span></div>
+      <h3>Full Stack .NET Developer — Fifth Third Bank, Cincinnati, OH</h3>
+      <p>Loan-origination and payment microservices, with React front ends and event-driven workflows.</p>
+      <ul class="pf-bullets">
+        <li><strong>APIs:</strong> versioned REST APIs with validation, idempotency and pagination</li>
+        <li><strong>Services:</strong> loan and payment microservices in C# and .NET</li>
+        <li><strong>Front end:</strong> React and TypeScript</li>
+        <li><strong>Events:</strong> Kafka and Amazon MSK workflows</li>
+        <li><strong>AI:</strong> Amazon Bedrock and RAG patterns</li>
+      </ul>
+      <p class="pf-tags"><span class="pf-tag">Microservices</span><span class="pf-tag">React</span><span class="pf-tag">Kafka</span><span class="pf-tag">Bedrock</span></p>
+      <p><a href="code-samples.html#banking">See the banking sample</a></p>
+    </article>
+
+    <article class="pf-card pf-work-card">
+      <div class="pf-work-head"><p class="pf-eyebrow">Government</p><span class="pf-date">Dec 2021 – Jun 2023</span></div>
+      <h3>.NET Developer — State of Maine, Augusta, ME</h3>
+      <p>Modernised legacy .NET Framework, VB.NET and ASP.NET Web Forms applications to ASP.NET Core, for citizen and caseworker portals.</p>
+      <ul class="pf-bullets">
+        <li><strong>Modernisation:</strong> Web Forms to ASP.NET Core, step by step</li>
+        <li><strong>Portals:</strong> citizen and caseworker eligibility workflows</li>
+        <li><strong>Accessibility:</strong> Section 508 and WCAG 2.1, tested with axe-core</li>
+        <li><strong>Data:</strong> SQL Server queries, functions and stored procedures</li>
+      </ul>
+      <p class="pf-tags"><span class="pf-tag">Web Forms</span><span class="pf-tag">ASP.NET Core</span><span class="pf-tag">Section 508</span><span class="pf-tag">WCAG 2.1</span></p>
+      <p><a href="benefits.html">See the benefits-portal demo</a> &middot; <a href="code-samples.html#legacy">See the legacy sample</a></p>
+    </article>
+
+    <article class="pf-card pf-work-card">
+      <div class="pf-work-head"><p class="pf-eyebrow">Airline</p><span class="pf-date">Dec 2018 – Nov 2021</span></div>
+      <h3>Software Developer — Southwest Airlines, Austin, TX</h3>
+      <p>Passenger reservation and check-in microservices, with Angular front ends and Azure messaging.</p>
+      <ul class="pf-bullets">
+        <li><strong>Services:</strong> reservation and check-in microservices</li>
+        <li><strong>Front end:</strong> Angular and TypeScript</li>
+        <li><strong>Messaging:</strong> Azure Service Bus</li>
+        <li><strong>Patterns:</strong> holds, itinerary changes and cancellations</li>
+      </ul>
+      <p class="pf-tags"><span class="pf-tag">Angular</span><span class="pf-tag">Microservices</span><span class="pf-tag">Azure Service Bus</span></p>
+      <p><a href="code-samples.html#airline">See the airline sample</a></p>
+    </article>
+
+    <article class="pf-card pf-work-card">
+      <div class="pf-work-head"><p class="pf-eyebrow">IT services</p><span class="pf-date">Apr 2017 – Aug 2018</span></div>
+      <h3>Software Developer — Hexaware Technologies, Pune, India</h3>
+      <p>Customer-support and incident-management modules, with ASP.NET MVC and Web API services and React dashboards.</p>
+      <ul class="pf-bullets">
+        <li><strong>Support:</strong> ticket creation, assignment, SLA and escalation</li>
+        <li><strong>Services:</strong> ASP.NET MVC and Web API</li>
+        <li><strong>Front end:</strong> React dashboards</li>
+        <li><strong>Cloud:</strong> AWS-hosted patterns</li>
+      </ul>
+      <p class="pf-tags"><span class="pf-tag">ASP.NET MVC</span><span class="pf-tag">React</span><span class="pf-tag">AWS</span></p>
+      <p><a href="code-samples.html#support">See the support sample</a></p>
+    </article>
+  </section>
+
+  <section class="pf-section" id="education" aria-labelledby="education-heading">
+    <p class="pf-eyebrow">/ 06 &middot; Education &amp; contact</p>
+    <h2 id="education-heading">Honest notes, then a way to reach me</h2>
+    <div class="pf-two-col pf-two-col-even">
+      <div class="pf-card">
+        <h3>Education &amp; credentials</h3>
+        <p>The resume supplied for this portfolio lists <strong>no degree and no accessibility certification</strong>, and none is claimed here. The accessibility work shown is hands-on experience — Section 508 / WCAG 2.1 work and axe-core remediation — not a credential.</p>
+        <hr>
+        <h3>Working style</h3>
+        <p>Agile/Scrum delivery, pair and mob programming, code reviews, and Agile ceremonies, with AI-generated code validated by a person before it ships.</p>
+        <hr>
+        <h3>What this demo is not</h3>
+        <p>Not a State of Iowa system, not a production deployment, and not government-authorised. Government experience here is the State of Maine. All demo data is fictional.</p>
+      </div>
+      <div class="pf-contact" id="contact">
+        <h3>Let&rsquo;s build something accessible</h3>
+        <p>Open to contract and contract-to-hire .NET roles. The runnable demo, the design system and the code samples are all in the repository below — start there, then reach out.</p>
+        <p class="pf-actions">
+          <a class="pf-btn" href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>
+          <a class="pf-btn pf-btn-outline" href="benefits.html">Run the demo</a>
+          <a class="pf-btn pf-btn-outline" href="https://github.com/pbhavana0604/bhavana-pasula-portfolio">View the repository</a>
+        </p>
+        <p>Phone and email are not published in this public portfolio; use the contact details on the submitted resume.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-section" aria-labelledby="run-heading">
+    <p class="pf-eyebrow">Run it yourself</p>
+    <h2 id="run-heading">Two minutes, no database required</h2>
+    <pre><code>git clone https://github.com/pbhavana0604/bhavana-pasula-portfolio.git
 cd bhavana-pasula-portfolio
 dotnet restore IowaBenefitsPortal.sln
 dotnet run --project src/IowaBenefitsPortal/IowaBenefitsPortal.csproj --urls http://localhost:5111</code></pre>
-  <p>Then open http://localhost:5111/ — this page. Try the live demo: <a href="benefits.html">Benefits portal demo</a> → <a href="apply.html">Apply (demo)</a> → get a reference like <code>IA-DEMO-2026-000201</code> → <a href="status.html">Check status</a>. Seeded demo references also work: <code>IA-DEMO-2026-000101</code>, <code>IA-DEMO-2026-000102</code>.</p>
-  <p>API quick check, with the app running: <code>GET /health</code>, <code>GET /api/services</code>, <code>POST /api/applications</code>, <code>GET /api/applications/IA-DEMO-2026-000101</code>. Versioned routes (<code>/api/v1/…</code>) work identically.</p>
-  <h2>Featured projects</h2>
-  <div class="card-grid">
-    <article class="card"><h3>1. Benefits eligibility portal — runnable demo</h3><p>ASP.NET Core 8, layered controllers → services → repositories, in-memory store by default with a SQL Server repository as a drop-in, versioned REST API, and a complete accessible apply → confirm → status journey. <a href="benefits.html">Open the demo</a></p></article>
-    <article class="card"><h3>2. Healthcare dashboard patterns</h3><p>Angular / TypeScript, RxJS, NgRx, Angular Material and AG Grid patterns, plus SignalR + Redis, HL7 v2 / FHIR R4 integration notes and Azure OpenAI / RAG summaries — from UCLA Health work, shown here only as code samples with fictional data. <a href="code-samples.html#healthcare">See the samples</a></p></article>
-    <article class="card"><h3>3. Banking loan API patterns</h3><p>Versioned REST APIs with validation, idempotency, pagination, caching and Swagger/OpenAPI, plus Kafka / MSK event-driven workflows — from Fifth Third Bank work, shown as samples only. <a href="code-samples.html#banking">See the samples</a></p></article>
-    <article class="card"><h3>4. Enterprise design system</h3><p>Sass/SCSS design tokens, reusable components, consistent navigation and responsive layouts — the same system styling this site. No framework build is needed to view it. <a href="design-system.html">Open the design system</a></p></article>
-  </div>
-  <h2>Experience — from the resume</h2>
-  <ul>
-    <li><strong>UCLA Health, Los Angeles, CA — Senior Full Stack .NET Developer, Jul 2025–present:</strong> healthcare dashboards, accessible Angular UIs, SignalR workflows, FHIR/HL7 integration, Azure OpenAI/RAG.</li>
-    <li><strong>Fifth Third Bank, Cincinnati, OH — Full Stack .NET Developer, Jul 2023–Jun 2025:</strong> loan-origination and payment microservices, React/TypeScript, Kafka/MSK, Bedrock/RAG.</li>
-    <li><strong>State of Maine, Augusta, ME — .NET Developer, Dec 2021–Jun 2023:</strong> modernised VB.NET/Web Forms to ASP.NET Core, citizen/caseworker portals, eligibility workflows, Section 508/WCAG 2.1.</li>
-    <li><strong>Southwest Airlines, Austin, TX — Software Developer, Dec 2018–Nov 2021:</strong> reservation and check-in microservices, Angular, Azure Service Bus.</li>
-    <li><strong>Hexaware Technologies, Pune, India — Software Developer, Apr 2017–Aug 2018:</strong> support/ticket modules, ASP.NET MVC/Web API, React dashboards, AWS.</li>
-  </ul>
-  <p><strong>Honest limits, stated plainly:</strong> no accessibility certification and no formal WCAG training are claimed — the resume shows Section 508 / WCAG 2.1 and axe-core experience only. No page here is claimed to be fully WCAG compliant or Section 508 compliant. No employment with the State of Iowa is claimed; government experience is the State of Maine. Angular/React are evidenced on the resume; this runnable demo is HTML/CSS/JavaScript by design so it runs without a framework build.</p>
-  <h2>Skills at a glance</h2>
-  <p>C# · .NET Core / ASP.NET Core · Web API · Minimal APIs · EF Core · SQL Server · PostgreSQL · Oracle · Redis · Angular · React · TypeScript · HTML5 · CSS3 · Sass/SCSS · Bootstrap · Angular Material · Material UI · Kafka · Azure Service Bus · SignalR · GraphQL · Azure · AWS · Docker · Kubernetes · Terraform · Azure DevOps · GitHub Actions · xUnit · Moq · Azure OpenAI · Semantic Kernel · RAG · SSIS · Databricks</p>
-  <button class="btn" type="button" data-dialog-open="about-dialog">About this portfolio</button>
-  <dialog id="about-dialog" aria-labelledby="about-dialog-title">
-    <h2 id="about-dialog-title">About this portfolio</h2>
-    <p>A general portfolio, not built for one job posting. Do not enter real personal information in the demo. The runnable code lives in <code>src/IowaBenefitsPortal/</code>, the front-end source in <code>frontend/scss/</code>, SQL in <code>database/sql/</code>, and extra samples in <code>code-samples/</code>.</p>
-    <button class="btn" type="button" data-dialog-close>Close</button>
-  </dialog>
-  <p><a href="#main-content">Back to top</a></p>
+    <p>Then open http://localhost:5111/ — this page. Try the demo: <a href="benefits.html">Benefits demo</a> → <a href="apply.html">Apply (demo)</a> → get a reference like <code>IA-DEMO-2026-000201</code> → <a href="status.html">Check status</a>. Seeded references: <code>IA-DEMO-2026-000101</code>, <code>IA-DEMO-2026-000102</code>.</p>
+    <p>Other pages in this site: <a href="projects.html">Projects</a> &middot; <a href="code-samples.html">Code samples</a> &middot; <a href="design-system.html">Design system</a> &middot; <a href="services.html">Services</a></p>
+  </section>
 </main>
 <div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
-<footer class="site-footer"><div class="container"><p>Portfolio by Bhavana Pasula. Fictional data only. Street address, phone and email are intentionally not published here; use the contact information on the submitted resume. Professional profile: <a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>.</p></div></footer>
+<footer class="pf-footer">
+  <p>Portfolio by Bhavana Pasula. Fictional data only.</p>
+  <p><a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn</a> &middot; <a href="https://github.com/pbhavana0604/bhavana-pasula-portfolio">GitHub</a> &middot; <a href="#main-content">Back to top</a></p>
+</footer>
 <script src="js/app.js"></script>
+<script src="js/portfolio.js"></script>
 </body>
 </html>

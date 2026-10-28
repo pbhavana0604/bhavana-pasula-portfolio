@@ -58,7 +58,7 @@ Technically: semantic HTML5, one `h1` per page, skip link, landmarks, real `<lab
 
 Pages (served by the app at `/`):
 
-- `index.html` — portfolio home
+- `index.html` — portfolio home, restyled 2026-10-28 in an editorial single-page style (pale mint background, dark-green headlines, numbered sections /01–/06, sticky anchor navigation, stats strip, filterable technology tags, process steps, stacked work cards, contact panel) using only the author's resume facts; styles in `wwwroot/css/portfolio.css`, behaviour in `wwwroot/js/portfolio.js`. The example page's structure was used as a design reference only — no other person's wording or personal details are in this portfolio.
 - `projects.html` — all projects, with how the frontend was built
 - `code-samples.html` — code samples index
 - `benefits.html` — the runnable benefits portal demo (one sample project inside the general portfolio)
