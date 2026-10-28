@@ -1,6 +1,8 @@
 // Portfolio landing page behaviour: scroll progress, rotating hero word,
-// and accessible technology filtering. No data is collected, and nothing
-// here depends on mouse input alone — every control is a real button.
+// scroll reveal, and accessible technology filtering. No data is collected,
+// and nothing here depends on mouse input alone — every control is a real
+// button. Reveal is skipped entirely under prefers-reduced-motion, and the
+// CSS keeps revealed elements visible in that case as a fallback.
 (function () {
   "use strict";
 
@@ -26,6 +28,27 @@
       i = (i + 1) % words.length;
       rotating.textContent = words[i];
     }, 2600);
+  }
+
+  // Scroll reveal: sections, cards and stats fade/slide in as they enter
+  // the viewport. Content is never hidden from assistive technology —
+  // only its opacity/position animates — and reduced-motion users skip it.
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var revealTargets = document.querySelectorAll(".pf-section, .pf-card, .pf-stat");
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealTargets.forEach(function (target) {
+        target.classList.add("pf-reveal");
+        observer.observe(target);
+      });
+    }
   }
 
   // Technology filters: buttons with aria-pressed, cards hidden with

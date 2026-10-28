@@ -574,11 +574,116 @@ body.pf-page {
   font-size: 0.95rem;
 }
 
+/* Animations: hero entrance, scroll reveal, and gentle hover lift.
+   Everything below is switched off under prefers-reduced-motion. */
+@keyframes pf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pf-hero h1 {
+  animation: pf-fade-up 0.7s ease 0.05s both;
+}
+
+.pf-hero .pf-role {
+  animation: pf-fade-up 0.7s ease 0.15s both;
+}
+
+.pf-hero .pf-lead {
+  animation: pf-fade-up 0.7s ease 0.25s both;
+}
+
+.pf-hero .pf-actions {
+  animation: pf-fade-up 0.7s ease 0.35s both;
+}
+
+.pf-portrait {
+  animation: pf-fade-up 0.8s ease 0.2s both;
+}
+
+.pf-portrait img {
+  transition: transform 0.5s ease;
+}
+
+.pf-portrait:hover img {
+  transform: scale(1.02);
+}
+
+.pf-btn {
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.pf-btn:hover {
+  transform: translateY(-2px);
+}
+
+.pf-card,
+.pf-stat {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pf-card:hover,
+.pf-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(20, 83, 45, 0.14);
+}
+
+.pf-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.pf-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep the hover lift working on cards that have finished revealing. */
+.pf-reveal.is-visible.pf-card:hover,
+.pf-reveal.is-visible.pf-stat:hover {
+  transform: translateY(-4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pf-marquee span {
     animation: none;
     padding-left: 0;
     white-space: normal;
+  }
+
+  .pf-hero h1,
+  .pf-hero .pf-role,
+  .pf-hero .pf-lead,
+  .pf-hero .pf-actions,
+  .pf-portrait {
+    animation: none;
+  }
+
+  .pf-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pf-portrait img,
+  .pf-btn,
+  .pf-card,
+  .pf-stat {
+    transition: none;
+  }
+
+  .pf-portrait:hover img,
+  .pf-btn:hover,
+  .pf-card:hover,
+  .pf-stat:hover {
+    transform: none;
   }
 
   html {
