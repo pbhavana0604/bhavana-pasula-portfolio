@@ -1,0 +1,56 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Base layer only: element defaults. No component classes here,
+// so base styles never fight component styles.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: $font-base;
+  line-height: $line-height;
+  color: $color-ink;
+  background: $color-paper;
+}
+
+a {
+  color: $color-primary;
+  text-underline-offset: 0.2em;
+}
+
+// Nesting is kept to one level and only for states — deep nesting
+// is how CSS becomes unmaintainable in enterprise codebases.
+a:hover,
+a:focus {
+  color: $color-primary-dark;
+}
+
+:focus {
+  @include focus-ring;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 $space-3;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: $space-4 0 $space-2;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: $space-3 0 $space-2;
+}
+
+p {
+  max-width: 65ch;
+}

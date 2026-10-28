@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "tokens" as *;
+
+// Always-visible focus. Never use `outline: none` without a replacement.
+@mixin focus-ring {
+  outline: 3px solid $color-focus;
+  outline-offset: 3px;
+}
+
+// Usage: @include respond-to("medium") { ... }
+@mixin respond-to($name) {
+  @if map.has-key($breakpoints, $name) {
+    @media (min-width: map.get($breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$name}.";
+  }
+}
+
+@mixin button($bg, $fg) {
+  display: inline-block;
+  border: 2px solid $bg;
+  background: $bg;
+  color: $fg;
+  padding: 0.625rem 1.25rem;
+  border-radius: $radius;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+@mixin card {
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: map.get($spacing, "3");
+  background: $color-paper;
+}

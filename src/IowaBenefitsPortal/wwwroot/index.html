@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhavana Pasula — Senior .NET Full Stack Developer | Portfolio &amp; Code Samples</title>
+<meta name="description" content="Portfolio and code samples by Bhavana Pasula, Senior .NET Full Stack Developer: ASP.NET Core APIs, accessible front-end and design systems, SQL Server, and sample projects from healthcare, banking, government, airline and IT services work. Fictional sample data only.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <p class="site-title">Bhavana Pasula</p>
+    <p class="site-tagline">Senior .NET Full Stack Developer — Waukee, Iowa · Willing to relocate</p>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="code-samples.html">Code samples</a></li>
+        <li><a href="design-system.html">Design system</a></li>
+        <li><a href="benefits.html">Benefits demo</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="container">
+  <p class="demo-notice" role="note">Portfolio demonstration — fictional sample data only. This is not a real client system, no real customer, patient, citizen or passenger data is used, and no credentials are published. Contact details are on the submitted resume; this site publishes only the LinkedIn profile below.</p>
+  <h1>Senior .NET Full Stack Developer — code you can run, not just list</h1>
+  <p>10 years building enterprise applications across healthcare, banking, government, airlines and IT services — C#, ASP.NET Core, Web API and Minimal APIs, EF Core and SQL Server, Angular, React and TypeScript, Azure and AWS, Docker and Kubernetes, Kafka and Azure Service Bus, and AI-assisted .NET work with Azure OpenAI, Semantic Kernel and RAG.</p>
+  <p>What makes this portfolio different from a list of skills: the runnable demo, the design system, and the code samples use the same patterns as on the resume — layered APIs, validated forms with error recovery, reusable components with design tokens, and WCAG 2.1 AA / Section 508 accessibility work (semantic HTML, keyboard navigation, focus management, axe-core remediation for missing labels, focus order and dynamic content).</p>
+  <p><a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a> · <a href="projects.html">See all projects</a> · <a href="code-samples.html">Browse code samples</a></p>
+  <h2>Run it in 2 minutes</h2>
+  <pre><code>git clone https://github.com/pbhavana0604/bhavana-pasula-portfolio.git
+cd bhavana-pasula-portfolio
+dotnet restore IowaBenefitsPortal.sln
+dotnet run --project src/IowaBenefitsPortal/IowaBenefitsPortal.csproj --urls http://localhost:5111</code></pre>
+  <p>Then open http://localhost:5111/ — this page. Try the live demo: <a href="benefits.html">Benefits portal demo</a> → <a href="apply.html">Apply (demo)</a> → get a reference like <code>IA-DEMO-2026-000201</code> → <a href="status.html">Check status</a>. Seeded demo references also work: <code>IA-DEMO-2026-000101</code>, <code>IA-DEMO-2026-000102</code>.</p>
+  <p>API quick check, with the app running: <code>GET /health</code>, <code>GET /api/services</code>, <code>POST /api/applications</code>, <code>GET /api/applications/IA-DEMO-2026-000101</code>. Versioned routes (<code>/api/v1/…</code>) work identically.</p>
+  <h2>Featured projects</h2>
+  <div class="card-grid">
+    <article class="card"><h3>1. Benefits eligibility portal — runnable demo</h3><p>ASP.NET Core 8, layered controllers → services → repositories, in-memory store by default with a SQL Server repository as a drop-in, versioned REST API, and a complete accessible apply → confirm → status journey. <a href="benefits.html">Open the demo</a></p></article>
+    <article class="card"><h3>2. Healthcare dashboard patterns</h3><p>Angular / TypeScript, RxJS, NgRx, Angular Material and AG Grid patterns, plus SignalR + Redis, HL7 v2 / FHIR R4 integration notes and Azure OpenAI / RAG summaries — from UCLA Health work, shown here only as code samples with fictional data. <a href="code-samples.html#healthcare">See the samples</a></p></article>
+    <article class="card"><h3>3. Banking loan API patterns</h3><p>Versioned REST APIs with validation, idempotency, pagination, caching and Swagger/OpenAPI, plus Kafka / MSK event-driven workflows — from Fifth Third Bank work, shown as samples only. <a href="code-samples.html#banking">See the samples</a></p></article>
+    <article class="card"><h3>4. Enterprise design system</h3><p>Sass/SCSS design tokens, reusable components, consistent navigation and responsive layouts — the same system styling this site. No framework build is needed to view it. <a href="design-system.html">Open the design system</a></p></article>
+  </div>
+  <h2>Experience — from the resume</h2>
+  <ul>
+    <li><strong>UCLA Health, Los Angeles, CA — Senior Full Stack .NET Developer, Jul 2025–present:</strong> healthcare dashboards, accessible Angular UIs, SignalR workflows, FHIR/HL7 integration, Azure OpenAI/RAG.</li>
+    <li><strong>Fifth Third Bank, Cincinnati, OH — Full Stack .NET Developer, Jul 2023–Jun 2025:</strong> loan-origination and payment microservices, React/TypeScript, Kafka/MSK, Bedrock/RAG.</li>
+    <li><strong>State of Maine, Augusta, ME — .NET Developer, Dec 2021–Jun 2023:</strong> modernised VB.NET/Web Forms to ASP.NET Core, citizen/caseworker portals, eligibility workflows, Section 508/WCAG 2.1.</li>
+    <li><strong>Southwest Airlines, Austin, TX — Software Developer, Dec 2018–Nov 2021:</strong> reservation and check-in microservices, Angular, Azure Service Bus.</li>
+    <li><strong>Hexaware Technologies, Pune, India — Software Developer, Apr 2017–Aug 2018:</strong> support/ticket modules, ASP.NET MVC/Web API, React dashboards, AWS.</li>
+  </ul>
+  <p><strong>Honest limits, stated plainly:</strong> no accessibility certification and no formal WCAG training are claimed — the resume shows Section 508 / WCAG 2.1 and axe-core experience only. No page here is claimed to be fully WCAG compliant or Section 508 compliant. No employment with the State of Iowa is claimed; government experience is the State of Maine. Angular/React are evidenced on the resume; this runnable demo is HTML/CSS/JavaScript by design so it runs without a framework build.</p>
+  <h2>Skills at a glance</h2>
+  <p>C# · .NET Core / ASP.NET Core · Web API · Minimal APIs · EF Core · SQL Server · PostgreSQL · Oracle · Redis · Angular · React · TypeScript · HTML5 · CSS3 · Sass/SCSS · Bootstrap · Angular Material · Material UI · Kafka · Azure Service Bus · SignalR · GraphQL · Azure · AWS · Docker · Kubernetes · Terraform · Azure DevOps · GitHub Actions · xUnit · Moq · Azure OpenAI · Semantic Kernel · RAG · SSIS · Databricks</p>
+  <button class="btn" type="button" data-dialog-open="about-dialog">About this portfolio</button>
+  <dialog id="about-dialog" aria-labelledby="about-dialog-title">
+    <h2 id="about-dialog-title">About this portfolio</h2>
+    <p>A general portfolio, not built for one job posting. Do not enter real personal information in the demo. The runnable code lives in <code>src/IowaBenefitsPortal/</code>, the front-end source in <code>frontend/scss/</code>, SQL in <code>database/sql/</code>, and extra samples in <code>code-samples/</code>.</p>
+    <button class="btn" type="button" data-dialog-close>Close</button>
+  </dialog>
+  <p><a href="#main-content">Back to top</a></p>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio by Bhavana Pasula. Fictional data only. Street address, phone and email are intentionally not published here; use the contact information on the submitted resume. Professional profile: <a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>.</p></div></footer>
+<script src="js/app.js"></script>
+</body>
+</html>

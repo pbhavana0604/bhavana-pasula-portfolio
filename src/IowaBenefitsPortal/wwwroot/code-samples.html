@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code samples — Bhavana Pasula Portfolio</title>
+<meta name="description" content="Code samples by Bhavana Pasula: layered ASP.NET Core APIs, healthcare, banking, airline and support patterns, SQL Server, and accessible front-end components. Fictional data only.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="container">
+<p class="site-title">Bhavana Pasula</p>
+<p class="site-tagline">Senior .NET Full Stack Developer — Waukee, Iowa · Willing to relocate</p>
+<nav class="main-nav" aria-label="Primary"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="code-samples.html" aria-current="page">Code samples</a></li>
+<li><a href="design-system.html">Design system</a></li>
+<li><a href="benefits.html">Benefits demo</a></li>
+</ul></nav></div></header>
+<main id="main-content" class="container">
+<p class="demo-notice" role="note">Samples are illustrative patterns with fictional data. The fully runnable, tested code is in <code>src/IowaBenefitsPortal/</code> — controllers, services, repositories, middleware and xUnit tests.</p>
+<h1>Code samples</h1>
+<h2 id="healthcare">Healthcare — dashboard + FHIR pattern</h2>
+<p><code>code-samples/csharp/HealthcareDashboard.cs</code> — capacity summary, SignalR-style live update shape, FHIR R4 patient summary mapping (name, identifiers redacted in samples), and an AI-summary request that requires human review before display. No PHI, no real patient data.</p>
+<h2 id="banking">Banking — loan API pattern</h2>
+<p><code>code-samples/csharp/LoanApi.cs</code> — intake DTO with validation, idempotency key handling, underwriting state machine (Received → UnderReview → Approved/Declined), and an event payload for Kafka/MSK. No real applicant data.</p>
+<h2 id="airline">Airline — reservation pattern</h2>
+<p><code>code-samples/csharp/FlightReservation.cs</code> — fare search result, reservation hold with expiry, itinerary change/cancellation rules, and an idempotent nightly load record.</p>
+<h2 id="support">Support — ticket pattern</h2>
+<p><code>code-samples/csharp/SupportTicket.cs</code> — ticket creation, assignment, SLA deadline calculation, escalation, and audit history. Plus the legacy Web Forms sample and modern equivalent in <code>code-samples/legacy/</code>.</p>
+<h2>Runnable core — already in this repo</h2>
+<ul>
+<li><code>src/IowaBenefitsPortal/Controllers/</code> — versioned REST API, validation, 201/400/404 handling</li>
+<li><code>src/IowaBenefitsPortal/Services/</code> — application + fictional eligibility rules, cleanly separated from HTTP</li>
+<li><code>src/IowaBenefitsPortal/Repositories/</code> — in-memory default + SQL Server (parameterised queries, stored procedure in <code>database/sql/</code>)</li>
+<li><code>src/IowaBenefitsPortal/Middleware/</code> — global exception handling, security headers, request logging</li>
+<li><code>frontend/scss/</code> — design tokens, mixins, base and components; compiled CSS checked in</li>
+<li><code>tests/IowaBenefitsPortal.Tests/</code> — xUnit: eligibility rules, API responses, HTML accessibility smoke tests</li>
+</ul>
+<p><a href="index.html">Back to portfolio home</a></p>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio by Bhavana Pasula. Fictional data only. Professional profile: <a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>.</p></div></footer>
+<script src="js/app.js"></script>
+</body>
+</html>

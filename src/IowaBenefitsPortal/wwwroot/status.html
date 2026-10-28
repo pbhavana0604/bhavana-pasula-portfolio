@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check status — Iowa Public Services Benefits Portal (Portfolio Demo)</title>
+<meta name="description" content="Look up a fictional demo application by reference number.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="container">
+<p class="site-title">Iowa Public Services — Benefits Portal</p>
+<nav class="main-nav" aria-label="Primary"><ul>
+<li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+<li><a href="apply.html">Apply (demo)</a></li><li><a href="status.html" aria-current="page">Check status</a></li><li><a href="design-system.html">Design system</a></ul></nav>
+</div></header>
+<main id="main-content" class="container">
+<p class="demo-notice" role="note">Independently developed portfolio demonstration — fictional sample data only, not a State of Iowa system.</p>
+<h1>Check your application status (demo)</h1>
+<p>Enter a demo reference number. Try a seeded record: <code>IA-DEMO-2026-000101</code> or <code>IA-DEMO-2026-000102</code>.</p>
+<form id="status-form">
+  <div class="field">
+    <label for="reference">Reference number</label>
+    <input id="reference" name="reference" type="text" autocomplete="off" aria-describedby="reference-hint">
+    <p class="hint" id="reference-hint">Format: IA-DEMO-2026- followed by 6 digits.</p>
+  </div>
+  <button class="btn" type="submit">Check status</button>
+</form>
+<div id="status-result" aria-live="polite"></div>
+<h2>What the statuses mean (demo only)</h2>
+<table>
+  <caption class="visually-hidden">Demo application statuses and their meanings</caption>
+  <thead><tr><th scope="col">Status</th><th scope="col">Meaning in this demo</th></tr></thead>
+  <tbody>
+    <tr><td><span class="status status-received">Received</span></td><td>The demo application was stored.</td></tr>
+    <tr><td><span class="status status-inreview">InReview</span></td><td>A fictional review step, shown for the seeded record.</td></tr>
+    <tr><td><span class="status status-needsinfo">NeedsInformation</span></td><td>A fictional prompt for more information, shown for the seeded record.</td></tr>
+  </tbody>
+</table>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio demonstration by Bhavana Pasula. Fictional data only.</p></div></footer>
+<script src="js/app.js"></script>
+<script src="js/status.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Azure DevOps pipeline for the Iowa benefits portal demo.
+# Restore -> build -> test -> publish artifact. No secrets referenced.
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: Release
+  dotnetVersion: 8.0.x
+
+steps:
+  - task: UseDotNet@2
+    displayName: Install .NET SDK
+    inputs:
+      version: $(dotnetVersion)
+
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: IowaBenefitsPortal.sln
+
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: build
+      projects: IowaBenefitsPortal.sln
+      arguments: --configuration $(buildConfiguration) --no-restore
+
+  - task: DotNetCoreCLI@2
+    displayName: Test
+    inputs:
+      command: test
+      projects: tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj
+      arguments: --configuration $(buildConfiguration) --no-build --logger trx
+      publishTestResults: true
+
+  - task: DotNetCoreCLI@2
+    displayName: Publish web app
+    inputs:
+      command: publish
+      projects: src/IowaBenefitsPortal/IowaBenefitsPortal.csproj
+      arguments: --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/app
+      publishWebProjects: false
+      zipAfterPublish: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish artifact
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)/app
+      ArtifactName: iowa-benefits-portal

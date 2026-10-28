@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet restore IowaBenefitsPortal.sln
+      - run: dotnet build IowaBenefitsPortal.sln --configuration Release --no-restore
+      - run: dotnet test tests/IowaBenefitsPortal.Tests/IowaBenefitsPortal.Tests.csproj --configuration Release --no-build
+      - run: dotnet publish src/IowaBenefitsPortal/IowaBenefitsPortal.csproj --configuration Release --output dist/app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iowa-benefits-portal
+          path: dist/app

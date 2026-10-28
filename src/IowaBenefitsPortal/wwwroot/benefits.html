@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benefits Portal Demo — Bhavana Pasula Portfolio — Benefits Eligibility &amp; Application Portal (Portfolio Demo)</title>
+<meta name="description" content="Portfolio demonstration by Bhavana Pasula: a fictional, accessible Iowa public-services eligibility portal built with ASP.NET Core 8, semantic HTML, SCSS and JavaScript.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <p class="site-title">Iowa Public Services — Benefits Portal</p>
+    <p class="site-tagline">Portfolio demonstration by Bhavana Pasula, Senior .NET Full Stack Developer — based in Waukee, Iowa</p>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Portfolio home</a></li>
+        <li><a href="benefits.html" aria-current="page">Benefits demo</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="apply.html">Apply (demo)</a></li>
+        <li><a href="status.html">Check status</a></li>
+        <li><a href="design-system.html">Design system</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="container">
+  <p class="demo-notice" role="note">Independently developed portfolio demonstration — fictional sample data only, not a State of Iowa system, no real citizens&rsquo; data, no credentials, no government authorization. Any eligibility result shown here is a demo calculation, not a real benefits determination.</p>
+  <h1>An accessible benefits portal, built end to end</h1>
+  <p>This project is the code sample for the State of Iowa Department of Management, Division of Information Technology (DOM DoIT) Senior .NET Developer / Front-End UI/UX role. It shows the same person building the back end and the interface Iowans would actually see: ASP.NET Core 8 APIs and services, SQL Server data access, a reusable design system in SCSS, and WCAG 2.1 AA-first front-end engineering.</p>
+  <p>Try the complete journey: <a href="apply.html">submit a demo application</a>, get a reference number, then <a href="status.html">check its status</a>. Or start from the seeded demo records, for example reference <code>IA-DEMO-2026-000101</code>.</p>
+
+  <h2>What this demonstrates</h2>
+  <div class="card-grid">
+    <article class="card"><h3>.NET and C# — about 40% of the role</h3><p>Clean, layered ASP.NET Core 8 code: controllers, services, repositories, dependency injection, DataAnnotations plus business-rule validation, global exception handling, security headers and structured logging. See <code>src/IowaBenefitsPortal/</code>.</p></article>
+    <article class="card"><h3>Front-end, UI and UX — about 40% of the role</h3><p>Semantic HTML5, SCSS design tokens, responsive layouts, validated forms with error recovery, and a live design-system page. No framework is required to run the demo; the components are framework-agnostic, and Angular experience is evidenced on the resume rather than faked here.</p></article>
+    <article class="card"><h3>Middleware and APIs — about 10%</h3><p>Versioned REST endpoints (<code>/api/v1/…</code>, with unversioned aliases), a <code>/health</code> endpoint, and three documented middleware components. See the API contract in the README.</p></article>
+    <article class="card"><h3>SQL Server — about 10%</h3><p>Schema, fictional seed data, parameterized queries and a stored procedure in <code>database/sql/</code>, plus a repository implementation that is only used when a connection string is supplied by environment configuration.</p></article>
+  </div>
+
+  <h2>Accessibility first, not an afterthought</h2>
+  <p>Every page uses landmarks, one <code>h1</code>, a logical heading order, a skip link, visible focus, real <code>&lt;label&gt;</code> elements, error summaries linked to fields, and an <code>aria-live</code> status region. The remediation focus matches the revised resume: missing labels, keyboard interaction, focus order, and dynamic-content accessibility. Status is shown with icon <em>and</em> text, never colour alone. The full checklist, axe and JAWS workflow, and before/after remediation examples are in <code>docs/ACCESSIBILITY.md</code>.</p>
+  <p><strong>Honest limit:</strong> an automated check reporting no violations does not make a page compliant. Manual keyboard and JAWS testing are still required, and no compliance or certification is claimed for this demo.</p>
+
+  <h2>Architecture at a glance</h2>
+  <p>Browser pages (HTML, CSS, JavaScript) call the ASP.NET Core API, which validates, runs the fictional eligibility rule, and stores the result through a repository interface. The default store is in-memory; SQL Server is a drop-in replacement. See the Mermaid diagram in the README and <code>docs/ARCHITECTURE.md</code>.</p>
+  <pre><code>Browser (wwwroot) → Controllers → ApplicationService → EligibilityService
+                                        ↓
+                              IApplicationRepository → In-memory (default)
+                                                         or SQL Server (configured)</code></pre>
+
+  <h2>For reviewers</h2>
+  <ul>
+    <li><a href="design-system.html">Design system — live components and tokens</a></li>
+    <li><a href="apply.html">Apply — the full accessible journey</a></li>
+    <li><a href="status.html">Check status — lookup by reference</a></li>
+    <li>Repository docs: README, <code>docs/MAPPING_TO_JOB.md</code> (requirement-by-requirement mapping, including honest gaps), <code>docs/LEGACY_MODERNIZATION.md</code>, <code>docs/CI_CD.md</code></li>
+  </ul>
+  <button class="btn" type="button" data-dialog-open="about-dialog">About this demo</button>
+  <dialog id="about-dialog" aria-labelledby="about-dialog-title">
+    <h2 id="about-dialog-title">About this demo</h2>
+    <p>This is a portfolio demonstration, not a government service. Do not enter real personal information. The author&rsquo;s background is on her resume: 10 years including government eligibility work at the State of Maine, healthcare at UCLA Health, and banking at Fifth Third Bank. No work for the State of Iowa is claimed.</p>
+    <button class="btn" type="button" data-dialog-close>Close</button>
+  </dialog>
+  <p><a href="#main-content">Back to top</a></p>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio demonstration by Bhavana Pasula. Fictional data only. Street address, phone and email are intentionally not published in this demo repository; use the contact information on the submitted resume. Professional profile: <a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>.</p></div></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
