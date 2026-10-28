@@ -6,23 +6,23 @@ or used by this build. No personal contact details are in the repo.
 ## 1. Create the repository
 
 ```bash
-cd iowa-doit-portfolio
+cd bhavana-pasula-portfolio
 git init
 git add .
-git commit -m "Portfolio: fictional Iowa benefits portal (ASP.NET Core 8, accessible front end)"
+git commit -m "General portfolio: portfolio home, projects and code samples, runnable benefits demo, design system"
 ```
 
 Create an empty repository on GitHub (web UI, or with the GitHub CLI):
 
 ```bash
-gh repo create iowa-doit-portfolio --public --source=. --remote=origin --push
+gh repo create bhavana-pasula-portfolio --public --source=. --remote=origin --push
 ```
 
 If `gh` is not authenticated, create the repo in the GitHub web
 UI instead, then:
 
 ```bash
-git remote add origin https://github.com/<your-username>/iowa-doit-portfolio.git
+git remote add origin https://github.com/pbhavana0604/bhavana-pasula-portfolio.git
 git branch -M main
 git push -u origin main
 ```
