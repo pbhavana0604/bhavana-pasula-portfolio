@@ -10,7 +10,7 @@
 | Accessibility | Yours to get right per usage | Mostly handled per component | Contract: every component ships with keyboard, focus, ARIA and contrast rules |
 
 Bootstrap and Material are used in the author's resume experience
-and in the Iowa environment described in the posting; neither is
+and in the environment described in the original posting; neither is
 *the* design system. A design system may be *built on* either, but
 it adds the shared tokens, the component contract, documentation,
 and the adoption path. This demo proves the distinction by shipping

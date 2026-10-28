@@ -10,4 +10,4 @@ General portfolio. Every claim below is on the resume; every demo uses fictional
 | Southwest Airlines, Dec 2018–Nov 2021 | `code-samples/csharp/FlightReservation.cs` |
 | Hexaware, Apr 2017–Aug 2018 | `code-samples/csharp/SupportTicket.cs` |
 
-Honest gaps: no accessibility certification, no formal WCAG training, no State of Iowa employment, Angular/React evidenced on the resume rather than as a second runnable app in this repo, AWS shown as patterns rather than a deployed AWS app.
+Honest gaps: no accessibility certification, no formal WCAG training, Angular/React evidenced on the resume rather than as a second runnable app in this repo, AWS shown as patterns rather than a deployed AWS app.

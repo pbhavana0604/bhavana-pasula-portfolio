@@ -51,6 +51,5 @@ ASP.NET Web Forms pages at UCLA Health (bed management),
 Fifth Third Bank (loan servicing) and the State of Maine
 (citizen/caseworker portals), while modernizing eligibility and
 benefit-processing applications toward ASP.NET Core, REST APIs
-and Azure services at the State of Maine. No work for the State
-of Iowa is claimed; this demo's legacy sample is illustrative,
+and Azure services at the State of Maine. No other state-government work is claimed; this demo's legacy sample is illustrative,
 modelled on that kind of maintenance work.

@@ -22,5 +22,5 @@ the files in this folder are illustrative patterns with fictional data only.
 | Legacy Web Forms + modern equivalent | `code-samples/legacy/`, `docs/LEGACY_MODERNIZATION.md` | Illustrative, not compiled in .NET 8 |
 
 No real patient, citizen, customer, or passenger data is used anywhere.
-No accessibility certification, degree, State of Iowa employment, production
+No accessibility certification, degree, production
 deployment, or government security authorisation is claimed.

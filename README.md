@@ -1,6 +1,6 @@
 # Bhavana Pasula — Senior .NET Full Stack Developer | Portfolio & Code Samples
 
-**General portfolio, not built for one job posting.** By Bhavana Pasula, Senior .NET Full Stack Developer — based in Waukee, Iowa, willing to relocate.
+**General portfolio, not built for one job posting.** By Bhavana Pasula, Senior .NET Full Stack Developer — based in Waukee, willing to relocate.
 
 Professional profile: [LinkedIn — Bhavana Pasula](https://www.linkedin.com/in/bhavana2708/)
 
