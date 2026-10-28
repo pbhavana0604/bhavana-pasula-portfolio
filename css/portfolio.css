@@ -186,6 +186,32 @@ body.pf-page {
   line-height: 1.5;
 }
 
+.pf-portrait {
+  margin: 0;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(20, 83, 45, 0.18);
+}
+
+.pf-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pf-portrait figcaption {
+  padding: 1rem 1.25rem 1.25rem;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--pf-ink);
+}
+
+.pf-portrait figcaption a {
+  color: var(--pf-dark-green);
+  font-weight: 700;
+}
+
 .pf-actions {
   display: flex;
   gap: 0.75rem;
