@@ -123,7 +123,7 @@ Verified in this session (after the format fix and code-samples expansion, re-ch
 
 Not verified in this build environment, stated honestly so a reviewer is not misled:
 
-- **Unit/API test run** — a full `dotnet test` run was started in this session; its result is reported separately and must not be claimed until that run completes. On 2026-10-27 the same run aborted on a vstest testhost connection timeout (environment, not a test failure).
+- **Unit/API test run** — a full `dotnet test` run on 2026-10-28 aborted after 600 seconds with a vstest testhost connection timeout (environment, not a test failure; no test passed or failed). Re-run `dotnet test` on the machine you share from before claiming a pass.
 - **JAWS manual testing** — no JAWS licence in this environment.
 - **axe browser run** — not performed here; documented as a manual step with CLI instructions.
 - **Live SQL Server run** — no SQL Server instance here; the repository code compiles and its SQL is parameterized, but the database scripts have not been executed against a live server.
