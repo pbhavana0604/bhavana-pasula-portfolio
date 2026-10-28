@@ -1,0 +1,561 @@
+/* Portfolio landing page, in the editorial style the author asked for:
+   pale mint background, very dark green headlines, one green accent,
+   white rounded cards, monospace eyebrows and tags, numbered sections.
+   This is a restyle of the author's own content only — no other
+   portfolio's wording, name or personal details are used here.
+   Accessibility notes (deliberate, not accidental):
+   - The vivid leaf green (#16a34a) is decorative only (progress bar,
+     marquee markers, card borders). All text and buttons use the dark
+     green (#14532d) or ink (#123524) on mint/white, for AA contrast.
+   - Motion (marquee, rotating word, scroll progress) stops under
+     prefers-reduced-motion. The rotating word is aria-hidden; the
+     headline still reads completely without it. */
+
+/* stylelint-disable no-descending-specificity */
+:root {
+  --pf-mint: #eef4ee;
+  --pf-ink: #123524;
+  --pf-muted: #4a5d52;
+  --pf-dark-green: #14532d;
+  --pf-vivid: #16a34a;
+  --pf-card: #ffffff;
+  --pf-border: #d6e2d6;
+  --pf-pale-green: #dcf0dc;
+}
+
+body.pf-page {
+  background: var(--pf-mint);
+  color: var(--pf-ink);
+}
+
+.pf-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--pf-vivid);
+  z-index: 50;
+}
+
+.pf-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(238, 244, 238, 0.96);
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.pf-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.pf-wordmark {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.15rem;
+  color: var(--pf-ink);
+  text-decoration: none;
+}
+
+.pf-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.pf-nav a {
+  color: var(--pf-ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.pf-nav a:hover,
+.pf-nav a:focus {
+  text-decoration: underline;
+}
+
+.pf-hire {
+  background: var(--pf-dark-green);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pf-hire:hover,
+.pf-hire:focus {
+  background: #0f3d21;
+  color: #fff;
+}
+
+.pf-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.pf-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pf-dark-green);
+}
+
+.pf-badge {
+  display: inline-block;
+  background: var(--pf-pale-green);
+  border: 1px solid var(--pf-border);
+  color: var(--pf-dark-green);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pf-hero {
+  display: grid;
+  gap: 2rem;
+  padding: 3rem 0 2rem;
+}
+
+@media (min-width: 48rem) {
+  .pf-hero {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: start;
+  }
+}
+
+.pf-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 1rem 0 0.75rem;
+}
+
+.pf-hero h1 .pf-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--pf-ink);
+}
+
+.pf-rotating {
+  color: var(--pf-dark-green);
+}
+
+.pf-role {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.pf-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--pf-muted);
+  max-width: 62ch;
+}
+
+.pf-monogram {
+  background: var(--pf-dark-green);
+  color: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.pf-monogram strong {
+  display: block;
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.pf-monogram p {
+  margin: 0.75rem 0 0;
+  color: #d6e2d6;
+  line-height: 1.5;
+}
+
+.pf-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.pf-btn {
+  display: inline-block;
+  background: var(--pf-dark-green);
+  color: #fff;
+  border: 2px solid var(--pf-dark-green);
+  border-radius: 999px;
+  padding: 0.7rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pf-btn:hover,
+.pf-btn:focus {
+  background: #0f3d21;
+  color: #fff;
+}
+
+.pf-btn-outline {
+  background: transparent;
+  color: var(--pf-dark-green);
+}
+
+.pf-btn-outline:hover,
+.pf-btn-outline:focus {
+  background: var(--pf-pale-green);
+  color: var(--pf-dark-green);
+}
+
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: 20px;
+  margin: 1rem 0 2.5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .pf-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pf-stat {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.pf-stat:nth-child(odd) {
+  border-right: 1px solid var(--pf-border);
+}
+
+@media (min-width: 48rem) {
+  .pf-stat {
+    border-bottom: 0;
+    border-right: 1px solid var(--pf-border);
+  }
+
+  .pf-stat:last-child {
+    border-right: 0;
+  }
+}
+
+.pf-stat strong {
+  display: block;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.pf-stat span {
+  color: var(--pf-muted);
+  font-size: 0.95rem;
+}
+
+.pf-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--pf-border);
+  border-bottom: 1px solid var(--pf-border);
+  color: var(--pf-dark-green);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.pf-marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: pf-scroll 28s linear infinite;
+}
+
+@keyframes pf-scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.pf-section {
+  padding: 3rem 0 0.5rem;
+}
+
+.pf-section h2 {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.pf-standfirst {
+  color: var(--pf-muted);
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+.pf-two-col {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .pf-two-col {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .pf-two-col-even {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pf-card {
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.pf-card-featured {
+  border: 2px solid var(--pf-vivid);
+}
+
+.pf-facts {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.pf-facts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--pf-border);
+  font-size: 0.95rem;
+}
+
+.pf-facts li span:first-child {
+  color: var(--pf-muted);
+}
+
+.pf-facts li span:last-child {
+  text-align: right;
+  font-weight: 700;
+}
+
+.pf-expertise {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.pf-expertise li {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.1rem 0.75rem;
+  border-top: 1px solid var(--pf-border);
+}
+
+@media (min-width: 48rem) {
+  .pf-expertise li {
+    grid-template-columns: 3rem 1fr 2fr;
+    align-items: baseline;
+  }
+}
+
+.pf-expertise li:hover {
+  background: var(--pf-card);
+  border-radius: 12px;
+}
+
+.pf-num {
+  color: var(--pf-dark-green);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+}
+
+.pf-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+
+.pf-pill {
+  border: 1px solid var(--pf-dark-green);
+  background: transparent;
+  color: var(--pf-dark-green);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pf-pill[aria-pressed="true"] {
+  background: var(--pf-dark-green);
+  color: #fff;
+}
+
+.pf-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 48rem) {
+  .pf-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pf-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.pf-tag {
+  background: var(--pf-pale-green);
+  color: var(--pf-dark-green);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.88rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.pf-tag-outline {
+  background: transparent;
+  border: 1px solid var(--pf-dark-green);
+}
+
+.pf-step-pill {
+  display: inline-block;
+  background: var(--pf-dark-green);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pf-keywords {
+  color: var(--pf-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+}
+
+.pf-work-card {
+  margin-top: 1.25rem;
+}
+
+.pf-work-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.pf-date {
+  background: var(--pf-dark-green);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.85rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.pf-bullets {
+  columns: 1;
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 48rem) {
+  .pf-bullets {
+    columns: 2;
+  }
+}
+
+.pf-bullets li::marker {
+  color: var(--pf-vivid);
+}
+
+.pf-contact {
+  background: var(--pf-dark-green);
+  color: #fff;
+  border-radius: 20px;
+  padding: 1.75rem;
+}
+
+.pf-contact h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 0;
+}
+
+.pf-contact p {
+  color: #d6e2d6;
+  line-height: 1.6;
+}
+
+.pf-contact .pf-btn {
+  background: #fff;
+  color: var(--pf-dark-green);
+  border-color: #fff;
+}
+
+.pf-contact .pf-btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.pf-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--pf-muted);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-marquee span {
+    animation: none;
+    padding-left: 0;
+    white-space: normal;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

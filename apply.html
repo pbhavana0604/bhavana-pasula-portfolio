@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply — Iowa Public Services Benefits Portal (Portfolio Demo)</title>
+<meta name="description" content="Accessible demo application form with error summary, field-level errors and a confirmation reference number. Fictional data only.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="container">
+<p class="site-title">Iowa Public Services — Benefits Portal</p>
+<nav class="main-nav" aria-label="Primary"><ul>
+<li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+<li><a href="apply.html" aria-current="page">Apply (demo)</a></li><li><a href="status.html">Check status</a></li><li><a href="design-system.html">Design system</a></ul></nav>
+</div></header>
+<main id="main-content" class="container">
+<p role="note" style="background:#fef3c7;border:1px solid #b7791f;padding:1rem;border-radius:8px"><strong>Static preview:</strong> this page normally talks to the live demo API, which is not available on GitHub Pages. The home, projects, code-samples and design-system pages work fully here; to try apply/status/services live, run the app locally with <code>dotnet run</code> as described in the repo README.</p>
+<p class="demo-notice" role="note">Independently developed portfolio demonstration — fictional sample data only, not a State of Iowa system. Do not enter real personal information.</p>
+<h1>Apply for assistance (demo)</h1>
+<p>Complete the form below. Errors are listed in a summary at the top of the form, with links to each field, and announced to screen readers. Submitting shows a confirmation with a demo reference number; nothing here is a real benefits determination.</p>
+
+<div id="error-summary" class="error-summary" tabindex="-1" hidden>
+  <h2>There is a problem</h2>
+  <p>Correct the following errors, then submit again:</p>
+  <ul id="error-summary-list"></ul>
+</div>
+
+<form id="application-form" novalidate>
+  <div class="field">
+    <label for="first-name">First name</label>
+    <input id="first-name" name="firstName" type="text" autocomplete="given-name" aria-describedby="first-name-error" aria-invalid="false">
+    <p class="field-error" id="first-name-error" role="alert"></p>
+  </div>
+  <div class="field">
+    <label for="last-name">Last name</label>
+    <input id="last-name" name="lastName" type="text" autocomplete="family-name" aria-describedby="last-name-error" aria-invalid="false">
+    <p class="field-error" id="last-name-error" role="alert"></p>
+  </div>
+  <div class="field">
+    <label for="city">City or town</label>
+    <input id="city" name="city" type="text" autocomplete="address-level2" aria-describedby="city-hint city-error" aria-invalid="false">
+    <p class="hint" id="city-hint">For example: Des Moines, Cedar Rapids, or Davenport (fictional demo entry).</p>
+    <p class="field-error" id="city-error" role="alert"></p>
+  </div>
+  <div class="field">
+    <label for="zip-code">ZIP code</label>
+    <input id="zip-code" name="zipCode" type="text" inputmode="numeric" autocomplete="postal-code" aria-describedby="zip-hint zip-code-error" aria-invalid="false">
+    <p class="hint" id="zip-hint">Enter 5 digits.</p>
+    <p class="field-error" id="zip-code-error" role="alert"></p>
+  </div>
+  <div class="field">
+    <label for="household-size">Household size</label>
+    <input id="household-size" name="householdSize" type="number" min="1" max="20" step="1" aria-describedby="household-hint household-size-error" aria-invalid="false">
+    <p class="hint" id="household-hint">Count everyone who lives with you and shares food and housing costs, from 1 to 20.</p>
+    <p class="field-error" id="household-size-error" role="alert"></p>
+  </div>
+  <div class="field">
+    <label for="monthly-income">Total monthly household income (dollars)</label>
+    <input id="monthly-income" name="monthlyIncome" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="income-hint monthly-income-error" aria-invalid="false">
+    <p class="hint" id="income-hint">Enter a number only, for example 1800. Do not enter real income in a demo.</p>
+    <p class="field-error" id="monthly-income-error" role="alert"></p>
+  </div>
+  <fieldset>
+    <legend>Services you are applying for (demo)</legend>
+    <p class="hint" id="services-hint">Select at least one.</p>
+    <div class="checkbox-row"><input id="service-child-care" name="services" type="checkbox" value="child-care"><label for="service-child-care">Child Care Assistance (fictional demo)</label></div>
+    <div class="checkbox-row"><input id="service-food" name="services" type="checkbox" value="food-assistance"><label for="service-food">Food Assistance (fictional demo)</label></div>
+    <div class="checkbox-row"><input id="service-health" name="services" type="checkbox" value="health-coverage"><label for="service-health">Health Coverage (fictional demo)</label></div>
+    <div class="checkbox-row"><input id="service-housing" name="services" type="checkbox" value="housing-assistance"><label for="service-housing">Housing Assistance (fictional demo)</label></div>
+    <p class="field-error" id="services-error" role="alert"></p>
+  </fieldset>
+  <div class="field checkbox-row">
+    <input id="consent" name="consent" type="checkbox" aria-describedby="consent-error" aria-invalid="false">
+    <label for="consent">I understand this is a demonstration only and the information I enter is fictional.</label>
+  </div>
+  <p class="field-error" id="consent-error" role="alert"></p>
+  <button class="btn" type="submit">Submit demo application</button>
+  <button class="btn btn-secondary" type="reset">Clear form</button>
+</form>
+
+<div id="form-result" aria-live="polite"></div>
+
+<h2>What happens after you submit</h2>
+<ol>
+  <li>The server validates the same rules again — client validation is never trusted alone.</li>
+  <li>A fictional eligibility check runs against the demo thresholds in <code>Services/EligibilityService</code>.</li>
+  <li>You receive a reference number such as <code>IA-DEMO-2026-000201</code>, which you can look up on the <a href="status.html">status page</a>.</li>
+</ol>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio demonstration by Bhavana Pasula. Fictional data only.</p></div></footer>
+<script src="js/app.js"></script>
+<script src="js/apply.js"></script>
+</body>
+</html>

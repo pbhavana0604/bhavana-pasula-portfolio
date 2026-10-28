@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Iowa Public Services Benefits Portal (Portfolio Demo)</title>
+<meta name="description" content="Fictional demo service catalogue, loaded from the ASP.NET Core API.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="container">
+<p class="site-title">Iowa Public Services — Benefits Portal</p>
+<nav class="main-nav" aria-label="Primary"><ul>
+<li><a href="index.html">Home</a></li><li><a href="services.html" aria-current="page">Services</a></li>
+<li><a href="apply.html">Apply (demo)</a></li><li><a href="status.html">Check status</a></li><li><a href="design-system.html">Design system</a></ul></nav>
+</div></header>
+<main id="main-content" class="container">
+<p role="note" style="background:#fef3c7;border:1px solid #b7791f;padding:1rem;border-radius:8px"><strong>Static preview:</strong> this page normally talks to the live demo API, which is not available on GitHub Pages. The home, projects, code-samples and design-system pages work fully here; to try apply/status/services live, run the app locally with <code>dotnet run</code> as described in the repo README.</p>
+<p class="demo-notice" role="note">Independently developed portfolio demonstration — fictional sample data only, not a State of Iowa system.</p>
+<h1>Services (fictional demo catalogue)</h1>
+<p>The list below is loaded live from <code>GET /api/services</code>. If the API is unavailable, the static fallback below remains readable — the page never depends on JavaScript for its basic content.</p>
+<div id="service-list">
+  <article class="card"><h2>Child Care Assistance (fictional demo)</h2><p>Fictional example of help paying for child care while a parent works or studies.</p></article>
+  <article class="card"><h2>Food Assistance (fictional demo)</h2><p>Fictional example of help buying food.</p></article>
+  <article class="card"><h2>Health Coverage (fictional demo)</h2><p>Fictional example of health-coverage help. Not a real eligibility determination.</p></article>
+  <article class="card"><h2>Housing Assistance (fictional demo)</h2><p>Fictional example of help with housing costs.</p></article>
+</div>
+<button class="btn" type="button" data-disclosure aria-expanded="false" aria-controls="how-it-works">How the demo eligibility check works</button>
+<div id="how-it-works" hidden>
+  <p>The check in <code>EligibilityService</code> compares monthly income with fictional thresholds by household size: at or below the lowest threshold is &ldquo;Eligible&rdquo;, within 15% above is &ldquo;LikelyEligible&rdquo;, otherwise &ldquo;NeedsReview&rdquo;. Real programmes use many more factors; this is a transparent demo rule, not a determination.</p>
+</div>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio demonstration by Bhavana Pasula. Fictional data only.</p></div></footer>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Bhavana Pasula Portfolio</title>
+<meta name="description" content="Sample projects by Bhavana Pasula, with fictional data only: a runnable benefits portal, healthcare dashboard patterns, banking loan API patterns, airline reservation patterns, and a support ticket system.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="container">
+<p class="site-title">Bhavana Pasula</p>
+<p class="site-tagline">Senior .NET Full Stack Developer — Waukee, Iowa · Willing to relocate</p>
+<nav class="main-nav" aria-label="Primary"><ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="projects.html" aria-current="page">Projects</a></li>
+<li><a href="code-samples.html">Code samples</a></li>
+<li><a href="design-system.html">Design system</a></li>
+<li><a href="benefits.html">Benefits demo</a></li>
+</ul></nav></div></header>
+<main id="main-content" class="container">
+<p class="demo-notice" role="note">All projects below use fictional sample data only. They show patterns from real resume experience; they are not copies of client systems and contain no real client data.</p>
+<h1>Projects</h1>
+<h2>Runnable in this repo</h2>
+<div class="card-grid">
+<article class="card"><h3>Benefits eligibility portal</h3><p>Full journey: browse services, apply with validation and error recovery, get a reference, check status. ASP.NET Core 8, versioned API, SQL Server option, xUnit tests, CI. <a href="benefits.html">Open the demo</a> · <a href="apply.html">Apply (demo)</a> · <a href="status.html">Check status</a></p></article>
+<article class="card"><h3>Enterprise design system</h3><p>Design tokens in SCSS, reusable cards, buttons, forms, dialogs and navigation — the system used by every page here, with keyboard focus and live-region patterns. <a href="design-system.html">Open the design system</a></p></article>
+</div>
+<h2>Pattern projects — code samples</h2>
+<ul>
+<li><strong>Healthcare dashboard (UCLA Health pattern):</strong> bed/capacity view, SignalR live updates, FHIR R4 patient summary mapping, Azure OpenAI shift-summary prompt with human review. See <code>code-samples/csharp/HealthcareDashboard.cs</code>.</li>
+<li><strong>Banking loan API (Fifth Third pattern):</strong> loan application intake, idempotent submission, credit/underwriting workflow states, Kafka event publishing. See <code>code-samples/csharp/LoanApi.cs</code>.</li>
+<li><strong>Airline reservation (Southwest pattern):</strong> fare search, reservation hold, itinerary change and cancellation state machine, idempotent batch load. See <code>code-samples/csharp/FlightReservation.cs</code>.</li>
+<li><strong>Support ticket system (Hexaware pattern):</strong> ticket creation, assignment, SLA escalation and audit history, with a legacy Web Forms sample and its modern equivalent in <code>code-samples/legacy/</code>.</li>
+<li><strong>Government portal modernisation (State of Maine pattern):</strong> VB.NET/Web Forms → ASP.NET Core, eligibility workflow, accessible citizen/caseworker forms. The runnable benefits demo is the modernised pattern, in miniature.</li>
+</ul>
+<h2>How the frontend was built</h2>
+<p>Reference style taken from general portfolio best practice: a clear hero with role + location + relocation, a runnable demo above the fold, a project grid, an experience timeline, and a skills list — no stock photos, no fake testimonials, no invented metrics. Technically: semantic HTML5, one <code>h1</code> per page, skip link, landmarks, real labels, error summaries linked to fields, <code>aria-live</code> status, visible focus, and compiled SCSS design tokens in <code>frontend/scss/</code> (<code>_tokens.scss</code>, <code>_components.scss</code>, <code>_base.scss</code>, <code>_mixins.scss</code>). The CSS in <code>wwwroot/css/main.css</code> is checked in, so the site runs with no Sass or Node build step.</p>
+<p><a href="index.html">Back to portfolio home</a></p>
+</main>
+<div id="live-region" class="visually-hidden" aria-live="polite" role="status"></div>
+<footer class="site-footer"><div class="container"><p>Portfolio by Bhavana Pasula. Fictional data only. Professional profile: <a href="https://www.linkedin.com/in/bhavana2708/">LinkedIn — Bhavana Pasula</a>.</p></div></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
